@@ -21,11 +21,11 @@ router.route('/')
     })
 
 
-    router 
-        .route('/:id')
-        .get()
-        .patch()
-        .delete()
+    // router 
+    //     .route('/:id')
+    //     .get()
+    //     .patch()
+    //     .delete()
 
 
 export default router;
