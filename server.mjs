@@ -1,6 +1,6 @@
 //Imports
 import express from "express";
-import noNameRoutes from "./routes/noname.mjs";
+import animalRoutes from "./routes/animalRoutes.mjs";
 import logReq from "./middleware/logRequest.mjs";
 import animals from "./data/animals.mjs";
 import enclosures from "./data/enslosures.mjs";
@@ -10,7 +10,7 @@ const app = express();
 const PORT = 3000 || 3001;
 
 //Routes
-app.use('/', noNameRoutes);
+app.use('/', animalRoutes);
 
 //Middleware
 app.use(logReq);
