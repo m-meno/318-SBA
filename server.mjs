@@ -11,9 +11,10 @@ const app = express();
 const PORT = 3000 || 3001;  
 
 //Routes
-app.use('/', animalRoutes);
+app.use('/animals', animalRoutes);
 
 //Middleware
+app.use(express.json());
 app.use(express.static("./styles"));
 app.use(logReq);
 

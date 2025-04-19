@@ -4,6 +4,7 @@ const enclosures = [
         type: 'stable',
         occupency: 5,
 
+
     },
     {
         id: 2,

@@ -1,24 +1,23 @@
 import express from "express";
+import aniCont from "../controllers/animalControllers.mjs";
 
 
 const router = express.Router();
 
 router.route('/')
-    .get((req, res) => {
-        res.send('Get')
-    })
+    .get(aniCont.getAllAnimals)
     .post((req, res) => {
         res.send('Post')
     })
-    .patch((req, res) => {
-        res.send('Patch')
-    })
+
+
+router.route('/:id')
+    .get(aniCont.getSingleAnimal)    
+    .patch(aniCont.editAnimal)
     .put((req, res) => {
         res.send('Put')
     })
-    .delete((req, res) => {
-        res.send('Delete')
-    })
+    .delete(aniCont.deleteAnimal)
 
 
     // router 
@@ -29,3 +28,7 @@ router.route('/')
 
 
 export default router;
+
+// .get((req, res) => {
+//     res.send('Get')
+// })

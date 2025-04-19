@@ -8,15 +8,12 @@
 
   <body>
     <div id="app">
-    <nav>
-        <a href=`/bike`>Home</a>
-        <a href=`/bike/image`>Image</a>
-        <a href=`/bike/form`>Form</a>
-    </nav>
-      <h1>Welcome Home, #title#!</h1>
-      <h2>Welcome to your dashboard. Use the nav bar to search the website.</h2>
-      <div>#content#</div>
-      <p>Your name is #name#! It is nice to meet you.</p>
+      <h1>Welcome to the farm, #user#!</h1>
+      <h2>Meet the residents! Use the dropdown menu.</h2>
+      <select> 
+        <option>#species#</option>
+
+      </select>
     </div>
   </body>
 </html>
