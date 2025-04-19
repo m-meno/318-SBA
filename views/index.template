@@ -4,16 +4,24 @@
     <title>#title#</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./style.css" />
+    <style> 
+    *{
+      background-color: lavender;
+      text-align: center;
+    }
+    </style>
   </head>
 
   <body>
     <div id="app">
-      <h1>Welcome to the farm, #user#!</h1>
-      <h2>Meet the residents! Use the dropdown menu.</h2>
-      <select> 
-        <option>#species#</option>
-
-      </select>
+      <h1>Welcome to the farm!</h1>
+      <h2>Use the dropdown menu to explore.</h2>
+      <form>
+        <select> 
+          <option>#optionOne#</option>
+          <option>#optionTwo#</option>
+        </select>
+       </form> 
     </div>
   </body>
 </html>

@@ -35,10 +35,10 @@ function getSingleAnimal(req, res, next) {
     else next();
 };
 
-function createAnimal(req, res) {
+function createAnimal(req, res, next) {
     if (req.body.name && req.body.species && req.body.age) {
         if (animals.find((a) => a.name == req.body.name)) {
-            res.json({ error: `This animal already exists in our database` });
+            next(error(409, `${req.body.name} is already in our database`));
         }
         const animal =
         {
@@ -49,7 +49,7 @@ function createAnimal(req, res) {
         };
         animals.push(animal);
         res.json(animals[animals.length - 1]);
-    } else res.json({ error: 'Insufficient animal data' });
+    } else next(error(400, 'Insufficient animal data'));
 };
 
 
@@ -61,7 +61,7 @@ function deleteAnimal(req, res, next) {
         }
     });
     if (animal) res.json(animal);
-    else next();
+    else next(error(400, `${req.body.name} is not found in our database.`));
 
 };
 
@@ -76,7 +76,7 @@ function editAnimal(req, res, next) {
     });
 
     if (animal) res.json(animal);
-    else next();
+    else next((error(400, )));
 };
 
 export default { getAllAnimals, getSingleAnimal, createAnimal, deleteAnimal, editAnimal };
