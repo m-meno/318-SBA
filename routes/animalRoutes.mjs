@@ -17,16 +17,5 @@ router.route('/:id')
     })
     .delete(aniCont.deleteAnimal)
 
-
-    // router 
-    //     .route('/:id')
-    //     .get()
-    //     .patch()
-    //     .delete()
-
-
 export default router;
 
-// .get((req, res) => {
-//     res.send('Get')
-// })

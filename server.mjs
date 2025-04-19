@@ -1,22 +1,24 @@
 //Imports
 import express from "express";
 import animalRoutes from "./routes/animalRoutes.mjs";
+import enclosureRoutes from "./routes/enclosuresRoutes.mjs";
 import logReq from "./middleware/logRequest.mjs";
-import animals from "./data/animals.mjs";
-import enclosures from "./data/enslosures.mjs";
 import fs from "fs";
 
 //Setups
 const app = express();
 const PORT = 3000 || 3001;  
 
-//Routes
-app.use('/animals', animalRoutes);
 
 //Middleware
 app.use(express.json());
 app.use(express.static("./styles"));
 app.use(logReq);
+
+
+//Routes
+app.use('/animals', animalRoutes);
+app.use('/enclosures', enclosureRoutes);
 
 // app.engine("template", (filePath, options, callback) => {
 //     fs.readFile(filePath, (err, content) => {
@@ -39,6 +41,11 @@ app.use(logReq);
 //     }
 // });
 
+//Error Handling Middleware --- next not needed because we aren't passing off to another function
+app.use((req, res) => {
+    res.status(404);
+    res.json({error: `Resource Not Found`});
+})
 
 //Listener
 app.listen(PORT, (req, res) => {
