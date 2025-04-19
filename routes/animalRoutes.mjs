@@ -6,9 +6,7 @@ const router = express.Router();
 
 router.route('/')
     .get(aniCont.getAllAnimals)
-    .post((req, res) => {
-        res.send('Post')
-    })
+    .post(aniCont.createAnimal)
 
 
 router.route('/:id')
