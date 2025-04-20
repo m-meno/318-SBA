@@ -1,16 +1,16 @@
-import enclosures from "../data/habitations.mjs";
+import habitations from "../data/habitations.mjs";
 
-function getAllEnclosures(req, res){
-    const link = [
+function getAllHabitations(req, res){
+    const links = [
         {
-            href: 'animals/:id',
+            href: 'habitations/:id',
             rel: ':id',
             type: 'GET'
         },
     ]
-    res.json({ habitations, link })
+    res.json({ habitations, links })
    
 };
 
 
-export default {getAllEnclosures}
+export default {getAllHabitations}

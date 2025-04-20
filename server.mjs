@@ -18,8 +18,37 @@ app.use(logReq);
 
 //Routes
 app.use('/animals', animalRoutes);
-app.use('/enclosures', habitationRoutes);
+app.use('/habitations', habitationRoutes);
+ 
+//HATEOAS   
+  app.get("/", (req, res) => {
+    res.json({
+      links: [
+        {
+          href: "/animals",
+          rel: "animals",
+          type: "GET",
+        },
+        {
+          href: "/animals",
+          rel: "animals",
+          type: "POST",
+        },
+        {
+          href: "/habitaions",
+          rel: "habitations",
+          type: "GET",
+        },
+        {
+          href: "/habitations",
+          rel: "habitations",
+          type: "POST",
+        },
+      ],
+    });
+  });
 
+//View Engine
 app.engine("template", (filePath, options, callback) => {
     fs.readFile(filePath, (err, content) => {
         if (err) return callback(err);
@@ -40,11 +69,11 @@ app.get('/template', (req, res) => {
     res.render("index", options);    
 });
 
-//Error Handling Middleware --- next not needed because we aren't passing off to another function
+//Error Handling Middleware
 app.use((req, res) => {
     res.status(404);
     res.json({error: `Resource Not Found`});
-})
+});
 
 //Listener
 app.listen(PORT, (req, res) => {

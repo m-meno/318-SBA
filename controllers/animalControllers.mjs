@@ -5,7 +5,7 @@ import error from "../middleware/errorHandling.mjs";
 
 function getAllAnimals(req, res) {
     res.json(animals);
-    const link = [
+    const links = [
         {
             href: 'animals/:id',
             rel: ':id',
@@ -13,11 +13,11 @@ function getAllAnimals(req, res) {
         },
     ]
 
-    res.json({ animals, link })
+    res.json({animals, links})
 };
 
 function getSingleAnimal(req, res, next) {
-    const link = [
+    const links = [
         {
             href: `/${req.params.id}`,
             rel: ``,
@@ -31,7 +31,7 @@ function getSingleAnimal(req, res, next) {
     ]
     const animal = animals.find((a) => a.id == req.params.id);
 
-    if (animal) res.json(animal, link);
+    if (animal) res.json({animal, links});
     else next();
 };
 
@@ -76,7 +76,7 @@ function editAnimal(req, res, next) {
     });
 
     if (animal) res.json(animal);
-    else next((error(400, )));
+    else next();
 };
 
 export default { getAllAnimals, getSingleAnimal, createAnimal, deleteAnimal, editAnimal };

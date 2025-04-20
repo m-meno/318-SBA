@@ -1,11 +1,9 @@
 import express from "express";
-import encCont from "../controllers/habitationsControllers.mjs";
+import habCont from "../controllers/habitationsControllers.mjs";
 
 const router = express.Router();
 
 router.route('/')
-    .get(encCont.getAllEnclosures)
-
-
+    .get(habCont.getAllHabitations)
 
 export default router;
