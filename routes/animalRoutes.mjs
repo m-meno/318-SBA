@@ -14,5 +14,8 @@ router.route('/:id')
     .patch(aniCont.editAnimal)
     .delete(aniCont.deleteAnimal)
 
+router.route('/:species')    
+    .get(aniCont.getAnimalsOfSpecies)
+
 export default router;
 

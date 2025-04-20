@@ -1,6 +1,6 @@
 import caretakers from "../data/caretakers.mjs";
 
-function getAllCaretakers(req, res){
+function getAllCaretakers(req, res) {
     const links = [
         {
             href: 'caretakers/:id',
@@ -8,7 +8,7 @@ function getAllCaretakers(req, res){
             type: 'GET'
         },
     ]
-    res.json({caretakers, links});
+    res.json({ caretakers, links });
 };
 
-export default {getAllCaretakers};
+export default { getAllCaretakers };

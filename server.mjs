@@ -77,6 +77,11 @@ app.use((req, res) => {
     res.json({error: `Resource Not Found`});
 });
 
+app.use((err, req, res, next)=>{
+    res.status(err.status || 500);
+    res.json({error: err.message})
+});   
+
 //Listener
 app.listen(PORT, (req, res) => {
     console.log(`Server Connected on PORT ${PORT}.`)

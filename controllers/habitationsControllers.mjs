@@ -1,6 +1,6 @@
 import habitations from "../data/habitations.mjs";
 
-function getAllHabitations(req, res){
+function getAllHabitations(req, res) {
     const links = [
         {
             href: 'habitations/:id',
@@ -9,8 +9,8 @@ function getAllHabitations(req, res){
         },
     ]
     res.json({ habitations, links })
-   
+
 };
 
 
-export default {getAllHabitations}
+export default { getAllHabitations };

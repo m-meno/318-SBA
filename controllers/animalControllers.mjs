@@ -79,4 +79,15 @@ function editAnimal(req, res, next) {
     else next();
 };
 
-export default { getAllAnimals, getSingleAnimal, createAnimal, deleteAnimal, editAnimal };
+function getAnimalsOfSpecies(req, res, next){
+    let allAnimalsOfSpecies = [];
+    animals.forEach((a) => {
+        if(a.species == req.params.species){
+            allAnimalsOfSpecies.push(a);
+        }
+    })
+    if (allAnimalsOfSpecies.length > 0) res.json(allAnimalsOfSpecies)
+        else next(error(400, "No animals of this species"));
+};
+
+export default { getAllAnimals, getSingleAnimal, createAnimal, deleteAnimal, editAnimal, getAnimalsOfSpecies};
