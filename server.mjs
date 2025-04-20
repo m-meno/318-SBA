@@ -21,6 +21,20 @@ app.use(logReq);
 app.use('/animals', animalRoutes);
 app.use('/habitations', habitationRoutes);
 app.use('/caretakers', caretakersRoutes);
+
+// app.use('/animals', (req, res, next)=>{
+//     const filters = req.query;
+//     const filteredSpecies = animals.filter(species => {
+//         for (key in filters) {
+//             console.log(key, species[key], filters[key]);
+//             isValid = isValid && species[key] == filters[key];
+//         }
+//         return isValid;
+//     });
+//     res.send(filteredSpecies)
+// });
+
+
  
 //HATEOAS   
   app.get("/", (req, res) => {

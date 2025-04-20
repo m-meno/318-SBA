@@ -13,7 +13,7 @@ function getAllAnimals(req, res) {
         },
     ]
 
-    res.json({animals, links})
+    res.json({ animals, links })
 };
 
 function getSingleAnimal(req, res, next) {
@@ -31,7 +31,7 @@ function getSingleAnimal(req, res, next) {
     ]
     const animal = animals.find((a) => a.id == req.params.id);
 
-    if (animal) res.json({animal, links});
+    if (animal) res.json({ animal, links });
     else next();
 };
 
@@ -79,15 +79,15 @@ function editAnimal(req, res, next) {
     else next();
 };
 
-function getAnimalsOfSpecies(req, res, next){
+function getAnimalsOfSpecies(req, res, next) {
     let allAnimalsOfSpecies = [];
     animals.forEach((a) => {
-        if(a.species == req.params.species){
+        if (a.species == req.query.species) {
             allAnimalsOfSpecies.push(a);
         }
     })
     if (allAnimalsOfSpecies.length > 0) res.json(allAnimalsOfSpecies)
-        else next(error(400, "No animals of this species"));
+    else next(error(400, "No animals of this species"));
 };
 
-export default { getAllAnimals, getSingleAnimal, createAnimal, deleteAnimal, editAnimal, getAnimalsOfSpecies};
+export default { getAllAnimals, getSingleAnimal, createAnimal, deleteAnimal, editAnimal, getAnimalsOfSpecies };

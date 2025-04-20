@@ -32,6 +32,12 @@ const animals = [
         species: 'pig',
         age: 4,
 
+    },
+    {
+        id: 7,
+        name: `Buggins`,
+        species: `chicken`,
+        age: `4`
     }
 ];
 
