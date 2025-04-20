@@ -1,7 +1,7 @@
 //Imports
 import express from "express";
 import animalRoutes from "./routes/animalRoutes.mjs";
-import enclosureRoutes from "./routes/enclosuresRoutes.mjs";
+import habitationRoutes from "./routes/habitationsRoutes.mjs";
 import logReq from "./middleware/logRequest.mjs";
 import fs from "fs";
 
@@ -18,15 +18,15 @@ app.use(logReq);
 
 //Routes
 app.use('/animals', animalRoutes);
-app.use('/enclosures', enclosureRoutes);
+app.use('/enclosures', habitationRoutes);
 
 app.engine("template", (filePath, options, callback) => {
     fs.readFile(filePath, (err, content) => {
         if (err) return callback(err);
         const rendered = content
             .toString()
-            .replace("#optionOne#", `${options.optionOne}`)
-            .replace("#optionTwo#", `${options.optionTwo}`)
+            .replace("#optionA#", `${options.optionA}`)
+            .replace("#optionB#", `${options.optionB}`)
             //.replace("#name#", '${options.}')
         return callback(null, rendered);    
     });
@@ -36,7 +36,7 @@ app.set("views", "./views");
 app.set("view engine", "template");
 
 app.get('/template', (req, res) => {
-    let options = {optionOne: "residents", optionTwo: "enclosures"}
+    let options = {optionA: "Meet the Residents", optionB: "View the Habitatations"}
     res.render("index", options);    
 });
 

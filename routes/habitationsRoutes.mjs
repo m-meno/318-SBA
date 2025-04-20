@@ -1,5 +1,5 @@
 import express from "express";
-import encCont from "../controllers/enclosuresControllers.mjs";
+import encCont from "../controllers/habitationsControllers.mjs";
 
 const router = express.Router();
 

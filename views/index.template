@@ -3,23 +3,17 @@
   <head>
     <title>#title#</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./style.css" />
-    <style> 
-    *{
-      background-color: lavender;
-      text-align: center;
-    }
-    </style>
+    <link rel="stylesheet" href="../style.css" />
   </head>
 
   <body>
     <div id="app">
-      <h1>Welcome to the farm!</h1>
+      <h1>Welcome to the sanctuary!</h1>
       <h2>Use the dropdown menu to explore.</h2>
       <form>
         <select> 
-          <option>#optionOne#</option>
-          <option>#optionTwo#</option>
+          <option>#optionA#</option>
+          <option>#optionB#</option>
         </select>
        </form> 
     </div>

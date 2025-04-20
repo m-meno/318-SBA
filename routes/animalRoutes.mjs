@@ -12,9 +12,6 @@ router.route('/')
 router.route('/:id')
     .get(aniCont.getSingleAnimal)    
     .patch(aniCont.editAnimal)
-    .put((req, res) => {
-        res.send('Put')
-    })
     .delete(aniCont.deleteAnimal)
 
 export default router;

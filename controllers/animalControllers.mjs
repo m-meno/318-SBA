@@ -5,33 +5,33 @@ import error from "../middleware/errorHandling.mjs";
 
 function getAllAnimals(req, res) {
     res.json(animals);
-    // const link = [
-    //     {
-    //         href: 'animals/:id',
-    //         rel: ':id',
-    //         type: 'GET'
-    //     },
-    // ]
+    const link = [
+        {
+            href: 'animals/:id',
+            rel: ':id',
+            type: 'GET'
+        },
+    ]
 
-    // res.json({ animals, link })
+    res.json({ animals, link })
 };
 
 function getSingleAnimal(req, res, next) {
-    // const link = [
-    //     {
-    //         href: `/${req.params.id}`,
-    //         rel: ``,
-    //         type: "DELETE",
-    //     },
-    //     {
-    //         href: `/${req.params.id}`,
-    //         rel: ``,
-    //         type: `PATCH`,
-    //     }
-    // ]
+    const link = [
+        {
+            href: `/${req.params.id}`,
+            rel: ``,
+            type: "DELETE",
+        },
+        {
+            href: `/${req.params.id}`,
+            rel: ``,
+            type: `PATCH`,
+        }
+    ]
     const animal = animals.find((a) => a.id == req.params.id);
 
-    if (animal) res.json(animal);
+    if (animal) res.json(animal, link);
     else next();
 };
 

@@ -1,4 +1,4 @@
-const enclosures = [
+const habitations = [
     {
         id: 1,
         type: 'stable',
@@ -18,4 +18,4 @@ const enclosures = [
     }
 ];
 
-export default enclosures;
+export default habitations;
