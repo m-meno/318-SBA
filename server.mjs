@@ -2,6 +2,7 @@
 import express from "express";
 import animalRoutes from "./routes/animalRoutes.mjs";
 import habitationRoutes from "./routes/habitationsRoutes.mjs";
+import caretakersRoutes from "./routes/caretakersRoutes.mjs";
 import logReq from "./middleware/logRequest.mjs";
 import fs from "fs";
 
@@ -19,6 +20,7 @@ app.use(logReq);
 //Routes
 app.use('/animals', animalRoutes);
 app.use('/habitations', habitationRoutes);
+app.use('/caretakers', caretakersRoutes);
  
 //HATEOAS   
   app.get("/", (req, res) => {
@@ -40,9 +42,9 @@ app.use('/habitations', habitationRoutes);
           type: "GET",
         },
         {
-          href: "/habitations",
-          rel: "habitations",
-          type: "POST",
+          href: "/caretakers",
+          rel: "caretakers",
+          type: "GET",
         },
       ],
     });
