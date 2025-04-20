@@ -14,6 +14,7 @@
         <select> 
           <option>#optionA#</option>
           <option>#optionB#</option>
+          <option>#optionC#</option>
         </select>
        </form> 
     </div>

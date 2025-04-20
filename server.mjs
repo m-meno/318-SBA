@@ -58,7 +58,7 @@ app.engine("template", (filePath, options, callback) => {
             .toString()
             .replace("#optionA#", `${options.optionA}`)
             .replace("#optionB#", `${options.optionB}`)
-            //.replace("#name#", '${options.}')
+            .replace("#optionC#", `${options.optionC}`)
         return callback(null, rendered);    
     });
 });
@@ -67,7 +67,7 @@ app.set("views", "./views");
 app.set("view engine", "template");
 
 app.get('/template', (req, res) => {
-    let options = {optionA: "Meet the Residents", optionB: "View the Habitatations"}
+    let options = {optionA: "Meet our Residents", optionB: "View the Habitatations", optionC: "Get to know the Caretakers"}
     res.render("index", options);    
 });
 
