@@ -80,13 +80,20 @@ function editAnimal(req, res, next) {
 };
 
 function getAnimalsOfSpecies(req, res, next) {
+    const links = [
+        {
+            href: `/${req.query.species}`,
+            rel: ``,
+            type: "GET",
+        }
+    ];  
     let allAnimalsOfSpecies = [];
     animals.forEach((a) => {
         if (a.species == req.query.species) {
             allAnimalsOfSpecies.push(a);
         }
-    })
-    if (allAnimalsOfSpecies.length > 0) res.json(allAnimalsOfSpecies)
+    });
+    if (allAnimalsOfSpecies.length > 0) res.json({allAnimalsOfSpecies, links})
     else next(error(400, "No animals of this species"));
 };
 

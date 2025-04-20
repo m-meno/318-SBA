@@ -10,11 +10,11 @@ router.route('/')
 
 
 router.route('/:id')
-    .get(aniCont.getSingleAnimal)    
+    .get(aniCont.getSingleAnimal)
     .patch(aniCont.editAnimal)
     .delete(aniCont.deleteAnimal)
-    
-router.route('/:species')   
+
+router.route('/:species')
     .get(aniCont.getAnimalsOfSpecies)
 
 export default router;

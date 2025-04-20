@@ -1,5 +1,5 @@
 const animals = [
-    {   
+    {
         id: 1,
         name: 'Viggo',
         species: 'horse',
@@ -20,7 +20,7 @@ const animals = [
         age: 2,
     },
     {
-        id: 4, 
+        id: 4,
         name: 'Domino',
         species: 'cow',
         age: 8,
